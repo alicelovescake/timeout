@@ -8,10 +8,17 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  timeouts  Timeout[]
+  id                String    @id @default(uuid())
+  twitterId         String    @unique
+  handle            String
+  name              String
+  profileImageURL   String
+  email             String?
+  accessToken       String
+  accessTokenSecret String
+  timeouts          Timeout[]
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 }
 
 model Timeout {

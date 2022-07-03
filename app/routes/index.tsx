@@ -1,23 +1,28 @@
-import { LoaderFunction } from "@remix-run/node";
-import { authenticator, User } from "~/server/auth.server";
-import { Form, useLoaderData } from "@remix-run/react";
+import type { LoaderFunction } from '@remix-run/node'
+import { Form, useLoaderData } from '@remix-run/react'
+
+import type { User } from '@prisma/client'
+import { authenticator } from '~/server/auth.server'
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const user = await authenticator.isAuthenticated(request);
-  return { user };
-};
+  const user = await authenticator.isAuthenticated(request)
+  return { user }
+}
+
 type LoaderData = {
-  user: User | null;
-};
+  user: User | null
+}
+
 export default function Index() {
-  const { user } = useLoaderData<LoaderData>();
+  const { user } = useLoaderData<LoaderData>()
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+    <div>
       <h1>Twitter Timeout!!</h1>
       {user ? (
         <div>
           <h2>Hello{user.name}</h2>
-          <img src={user.profile_image_url} alt="profile-pic" />
+          <img src={user.profileImageURL} alt="profile-pic" />
           <p>You are logged in with Twitter</p>
           <p>
             <Form method="post" action="/logout">
@@ -35,5 +40,5 @@ export default function Index() {
         </div>
       )}
     </div>
-  );
+  )
 }
