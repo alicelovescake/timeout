@@ -8,11 +8,11 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 
-import styles from './styles/app.css'
+import './styles/app.css'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
+  title: 'Timeout',
   viewport: 'width=device-width,initial-scale=1',
 })
 
