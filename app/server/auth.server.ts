@@ -26,7 +26,7 @@ authenticator.use(
     {
       clientID,
       clientSecret,
-      callbackURL: "/login/callback",
+      callbackURL: "http://localhost:3000/login/callback",
       includeEmail: true,
     },
     async ({
