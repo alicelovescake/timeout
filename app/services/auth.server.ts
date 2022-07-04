@@ -1,11 +1,21 @@
 import { Authenticator } from "remix-auth";
+import { createCookieSessionStorage } from "@remix-run/node";
 import type { TwitterProfile } from "remix-auth-twitter";
 import { TwitterStrategy } from "remix-auth-twitter";
 
-import { getSession, sessionStorage } from "./session.server";
 import { db } from "~/utils/db.server";
 import type { User } from "@prisma/client";
-import { redirect } from "@remix-run/node";
+
+const sessionStorage = createCookieSessionStorage({
+  cookie: {
+    name: "_session",
+    sameSite: "lax",
+    path: "/",
+    httpOnly: true,
+    secrets: [process.env.SESSION_SECRET ?? ""],
+    secure: process.env.NODE_ENV === "production",
+  },
+});
 
 export const authenticator = new Authenticator<User>(sessionStorage);
 
@@ -60,10 +70,9 @@ async function registerUser(
   });
 }
 
-export async function getAuthUserId(request: Request): Promise<User["id"]> {
+export async function getAuthUserId(
+  request: Request
+): Promise<User["id"] | undefined> {
   const user = await authenticator.isAuthenticated(request);
-  if (!user) {
-    throw redirect("/");
-  }
-  return user.id;
+  return user?.id;
 }

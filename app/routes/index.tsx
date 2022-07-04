@@ -2,12 +2,13 @@ import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, Form } from "@remix-run/react";
 
 import type { User, Timeout } from "@prisma/client";
-import { authenticator } from "~/server/auth.server";
-import { db } from "~/utils/db.server";
+import { authenticator } from "~/services/auth.server";
+import TimeoutForm from "~/components/TimeoutForm";
+import { getTimeoutListItems } from "~/services/timeout.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const user = await authenticator.isAuthenticated(request);
-  const timeouts = await db.timeout.findMany({ where: { userId: user?.id } });
+  const timeouts = user ? await getTimeoutListItems({ userId: user?.id }) : [];
 
   return { user, timeouts };
 };
@@ -78,6 +79,9 @@ export default function Index() {
                   <h2>These folks are in a timeout...</h2>
                 </div>
               )}
+              <div>
+                <TimeoutForm />
+              </div>
             </div>
 
             <Form

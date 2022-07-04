@@ -3,20 +3,19 @@ import { db } from "~/utils/db.server";
 
 export type { Timeout } from "@prisma/client";
 
-export function getTimeoutListItems({ userId }: { userId: User["id"] }) {
-  return db.timeout.findMany({
+export async function getTimeoutListItems({ userId }: { userId: User["id"] }) {
+  return await db.timeout.findMany({
     where: { userId },
     orderBy: { expiresAt: "desc" },
   });
 }
 
-export function createTimeout({
+export async function createTimeout({
   userId,
   handle,
   expiresAt,
 }: Pick<Timeout, "handle" | "expiresAt"> & { userId: User["id"] }) {
-  console.log("CREATE", userId, handle, expiresAt);
-  return db.timeout.create({
+  return await db.timeout.create({
     data: {
       handle,
       expiresAt,
