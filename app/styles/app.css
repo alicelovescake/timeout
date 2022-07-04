@@ -550,3 +550,216 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-brand-purple {
+  --tw-border-opacity: 1;
+  border-color: rgb(86 77 120 / var(--tw-border-opacity));
+}
+
+.border-brand-brown {
+  --tw-border-opacity: 1;
+  border-color: rgb(202 170 149 / var(--tw-border-opacity));
+}
+
+.border-brand-red {
+  --tw-border-opacity: 1;
+  border-color: rgb(146 110 111 / var(--tw-border-opacity));
+}
+
+.border-brand-blue {
+  --tw-border-opacity: 1;
+  border-color: rgb(154 203 208 / var(--tw-border-opacity));
+}
+
+.bg-brand-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(154 203 208 / var(--tw-bg-opacity));
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+.text-brand-purple {
+  --tw-text-opacity: 1;
+  color: rgb(86 77 120 / var(--tw-text-opacity));
+}
+
+.text-brand-red {
+  --tw-text-opacity: 1;
+  color: rgb(146 110 111 / var(--tw-text-opacity));
+}
+
+.text-brand-brown {
+  --tw-text-opacity: 1;
+  color: rgb(202 170 149 / var(--tw-text-opacity));
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(235 222 209 / var(--tw-bg-opacity));
+}
+
+.hover\:-mt-4:hover {
+  margin-top: -1rem;
+}
+
+.hover\:-mt-2:hover {
+  margin-top: -0.5rem;
+}
+
+.hover\:bg-brand-blue:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(154 203 208 / var(--tw-bg-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
