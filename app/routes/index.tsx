@@ -1,25 +1,25 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { useLoaderData, Form } from "@remix-run/react";
+import type { LoaderFunction } from '@remix-run/node'
+import { useLoaderData, Form } from '@remix-run/react'
 
-import type { User, Timeout } from "@prisma/client";
-import { authenticator } from "~/services/auth.server";
-import TimeoutForm from "~/components/TimeoutForm";
-import { getTimeoutListItems } from "~/services/timeout.server";
+import type { User, Timeout } from '@prisma/client'
+import { authenticator } from '~/services/auth.server'
+import TimeoutForm from '~/components/TimeoutForm'
+import { getTimeoutListItems } from '~/services/timeout.server'
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const user = await authenticator.isAuthenticated(request);
-  const timeouts = user ? await getTimeoutListItems({ userId: user?.id }) : [];
+  const user = await authenticator.isAuthenticated(request)
+  const timeouts = user ? await getTimeoutListItems({ userId: user?.id }) : []
 
-  return { user, timeouts };
-};
+  return { user, timeouts }
+}
 
 type LoaderData = {
-  user: User | null;
-  timeouts: Timeout[] | [];
-};
+  user: User | null
+  timeouts: Timeout[] | []
+}
 
 export default function Index() {
-  const { user, timeouts } = useLoaderData<LoaderData>();
+  const { user, timeouts } = useLoaderData<LoaderData>()
 
   return (
     <div className="max-w-4xl mx-auto py-8 font-mono">
@@ -59,7 +59,7 @@ export default function Index() {
 
                 <div>
                   <p>
-                    Howdy{" "}
+                    Howdy{' '}
                     <a
                       href={`https://twitter.com/${user.handle}`}
                       target="_blank"
@@ -111,5 +111,5 @@ export default function Index() {
         )}
       </div>
     </div>
-  );
+  )
 }
