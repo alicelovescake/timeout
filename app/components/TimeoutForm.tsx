@@ -32,6 +32,8 @@ export default function TimeoutForm() {
           <button
             type="submit"
             className="border-2 border-black p-2 mr-2 w-1/2 hover:bg-black hover:text-brand-white font-bold"
+            name="type"
+            value="ban"
           >
             Ban
           </button>
@@ -39,6 +41,8 @@ export default function TimeoutForm() {
           <button
             type="submit"
             className="border-2 border-black p-2 w-1/2 ml-2 hover:bg-black hover:text-brand-white font-bold"
+            name="type"
+            value="mute"
           >
             Mute
           </button>

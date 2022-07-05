@@ -19,6 +19,7 @@ export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData()
   const handle = formData.get('handle')
   const expiresAt = formData.get('expiresAt')
+  const type = formData.get('type')
 
   if (typeof handle !== 'string' || handle.length === 0) {
     return json<ActionData>(
@@ -34,10 +35,18 @@ export const action: ActionFunction = async ({ request }) => {
     )
   }
 
+  if (typeof type !== 'string' || type.length === 0) {
+    return json<ActionData>(
+      { errors: { expiresAt: 'Type is required' } },
+      { status: 400 }
+    )
+  }
+
   await createTimeout({
     expiresAt: new Date(expiresAt),
     handle,
     userId,
+    type,
   })
 
   return redirect('/')

@@ -14,11 +14,13 @@ export async function createTimeout({
   userId,
   handle,
   expiresAt,
-}: Pick<Timeout, 'handle' | 'expiresAt'> & { userId: User['id'] }) {
+  type,
+}: Pick<Timeout, 'handle' | 'expiresAt' | 'type'> & { userId: User['id'] }) {
   return await db.timeout.create({
     data: {
       handle,
       expiresAt,
+      type,
       user: {
         connect: {
           id: userId,

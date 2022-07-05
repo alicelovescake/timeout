@@ -24,9 +24,10 @@ model User {
 model Timeout {
   id        String   @id @default(uuid())
   handle    String
+  type      String   @default("ban")
   user      User     @relation(fields: [userId], references: [id])
+  userId    String
   expiresAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId    String
 }
