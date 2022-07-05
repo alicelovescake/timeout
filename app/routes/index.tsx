@@ -70,18 +70,21 @@ export default function Index() {
                     </a>
                     .
                   </p>
-                  <p>You've put {timeouts.length} people in a timeout.</p>
+
+                  <p>
+                    You've put {timeouts.length}{' '}
+                    {timeouts.length === 1 ? 'person' : 'people'} in a timeout.
+                  </p>
                 </div>
               </div>
+
+              <TimeoutForm />
 
               {timeouts.length > 0 && (
                 <div>
                   <h2>These folks are in a timeout...</h2>
                 </div>
               )}
-              <div>
-                <TimeoutForm />
-              </div>
             </div>
 
             <Form
